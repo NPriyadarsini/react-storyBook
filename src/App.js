@@ -1,11 +1,14 @@
+/* eslint-disable max-lines-per-function */
 import { React } from 'react';
 import './App.scss';
 import { Button } from './stories/Button';
 import { Save, Secondary } from './stories/Button.stories';
 import { Input } from './stories/Input';
+import { SelectBox } from './stories/SelectBox';
+import { Gender } from './stories/SelectBox.stories';
 
 const App = (context) => {
-	const { state: { text }} = context;
+	const { state: { text, selected }} = context;
 
 	return <div className="App" role="App">
 		StoryBook
@@ -20,8 +23,14 @@ const App = (context) => {
 				onClick={ (evt) =>
 					context.actions.saveInput(evt.target.value) }
 			/>
+			<SelectBox
+				{ ...Gender.args }
+				value={ selected }
+				onChange={ (evt) =>
+					context.actions.setSelected(evt.target.value) }
+			/>
 		</div>
-		<div>{text}</div>
+		<div>Name:{ text } <br/> Gender:{ selected }</div>
 	</div>;
 };
 
