@@ -4,14 +4,7 @@
   display: inline-block;
   line-height: 1;
 }
-.storybook-input--primary {
-  color: white;
-}
-.storybook-input--secondary {
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-}
+
 .storybook-input--small {
   font-size: 12px;
   padding: 10px 16px;
