@@ -8,7 +8,7 @@ import { SelectBox } from './stories/SelectBox';
 import { Gender } from './stories/SelectBox.stories';
 
 const App = (context) => {
-	const { state: { text, selected }} = context;
+	const { state: { text, gender, selected }} = context;
 
 	return <div className="App" role="App">
 		StoryBook
@@ -30,7 +30,7 @@ const App = (context) => {
 					context.actions.setSelected(evt.target.value) }
 			/>
 		</div>
-		<div>Name:{ text } <br/> Gender:{ selected }</div>
+		<div>Name:{ text } <br/> Gender:{ gender }</div>
 	</div>;
 };
 

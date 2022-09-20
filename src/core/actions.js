@@ -1,11 +1,13 @@
+import CommonManager from '../services/CommonManager';
+
 const setInput = ({ data: input }) => ({
 	input,
 });
 const saveInput = ({ state }) => ({
 	text: state.input,
 });
-const setSelected = ({ data: selected }) => ({
-	selected,
+const setSelected = (context) => ({
+	gender: CommonManager.setGender(context),
 });
 const actions = {
 	setInput,
