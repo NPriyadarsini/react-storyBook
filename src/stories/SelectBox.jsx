@@ -1,36 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './selectBox.css';
+import { keys, values } from '@laufire/utils/collection';
 
 /**
  * Primary UI component for user interaction
  */
 export const SelectBox
-= ({ primary, backgroundColor, size, options, ...props }) => {
-	const mode = primary
-		? 'storybook-selectBox--primary'
-		: 'storybook-selectBox--secondary';
-
-	return (
-		<select
-			className={ ['storybook-selectBox', `storybook-selectBox--${ size }`, mode].join(' ') }
-			style={ backgroundColor && { backgroundColor } }
-			{ ...props }
-		>{
-				options.map((option) =>
-					<option key={ option } value={ option }>
-						{option}</option>)
-			}
-		</select>
-	);
-};
+= ({ backgroundColor, size, options, ...props }) =>
+	<select
+		className={ ['storybook-selectBox', `storybook-selectBox--${ size }`] }
+		style={ backgroundColor && { backgroundColor } }
+		{ ...props }
+	>{
+			options.map((option) =>
+				<option key={ keys(option) } value={ (keys(option)) }>
+					{values(option)}</option>)
+		}
+	</select>
+	;
 
 SelectBox.propTypes = {
 
 	/**
    * Is this the principal call to action on the page?
    */
-	primary: PropTypes.bool,
+	// primary: PropTypes.bool,
 
 	/**
    * What background color to use
